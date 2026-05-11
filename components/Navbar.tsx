@@ -58,7 +58,7 @@ const neueMontreal = localFont({
 
 export function NavigationMenuDemo() {
   return (
-    <NavigationMenu className={neueMontreal.className}>
+    <NavigationMenu className={`${neueMontreal.className} bg-[#000] text-white`}>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Project</NavigationMenuTrigger>
