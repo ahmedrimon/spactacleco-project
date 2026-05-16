@@ -16,7 +16,7 @@ import {
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Alert Dialog",
+    title: "Open Modal",
     href: "/docs/primitives/alert-dialog",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
@@ -53,7 +53,7 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 const neueMontreal = localFont({
-  src : '../app/fonts/NeueMontreal-Regular.woff2'
+  src: '../app/fonts/NeueMontreal-Regular.woff2'
 })
 
 export function NavigationMenuDemo() {
@@ -61,17 +61,25 @@ export function NavigationMenuDemo() {
     <NavigationMenu className={`${neueMontreal.className} bg-[#000] text-white`}>
       <NavigationMenuList>
         <NavigationMenuItem>
+          <Link href="/">
+            <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
           <NavigationMenuTrigger>Project</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="w-96">
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built with Tailwind CSS.
+              <ListItem className="hover:bg-gray-400" href="/ainsilleStreet" title="Ainsile Street">
+                Internal and external stonework and ensuite
               </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
+              <ListItem className="hover:bg-gray-400" href="/duncraigRoad" title="Duncraig Road">
+                Brick Slip Installation & Natural Stone Floor Tiling
               </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
+              <ListItem className="hover:bg-gray-400" href="/siorProject" title="Excelsior Street">
+                Ensuite, kitchen and laundry tiling
+              </ListItem>
+              <ListItem className="hover:bg-gray-400" href="/seWell" title="Sewell Street">
+                Scala Crazy Paving Installation
               </ListItem>
             </ul>
           </NavigationMenuContent>
@@ -94,7 +102,7 @@ export function NavigationMenuDemo() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/docs">Content</Link>
+            <Link href="/contact">Content</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
@@ -102,7 +110,7 @@ export function NavigationMenuDemo() {
   )
 }
 
-function ListItem({title, children, href, ...props}: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
+function ListItem({ title, children, href, ...props }: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
   return (
     <li {...props}>
       <NavigationMenuLink asChild>
